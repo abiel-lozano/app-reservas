@@ -1,13 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-
-interface Booking {
-  id: number;
-  className: string;
-  instructor: string;
-  schedule: string;
-  availableSpots: number;
-}
+import { Observable } from 'rxjs';
+import { BookingStateService } from '../../services/booking-state.service';
+import { Booking } from '../../models/booking.model';
 
 @Component({
   selector: 'app-booking-detail',
@@ -17,16 +12,13 @@ interface Booking {
   styleUrl: './booking-detail.component.scss'
 })
 export class BookingDetailComponent {
-  selected: Booking | null = {
-    id: 1,
-    className: 'Yoga',
-    instructor: 'Laura Gomez',
-    schedule: 'Lunes 18:00',
-    availableSpots: 10
-  };
+  selected$: Observable<Booking | null>;
 
-  reserve(): void {
-    // TODO: conectar con servicio
-    console.log('Reserved', this.selected);
+  constructor(private bookingState: BookingStateService) {
+    this.selected$ = this.bookingState.selected$;
+  }
+
+  reserve(selected: Booking): void {
+    console.log('Reserved', selected);
   }
 }

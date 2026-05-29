@@ -1,11 +1,7 @@
 <div class="detail">
   <h2>Detalle de la clase</h2>
 
-  @if (!selected) {
-    <div class="state">
-      Selecciona una clase para ver su detalle.
-    </div>
-  } @else {
+  @if (selected$ | async; as selected) {
     <div class="card">
       <div class="row">
         <span class="label">Clase</span>
@@ -24,9 +20,13 @@
         <span class="value">{{ selected.availableSpots }} disponibles</span>
       </div>
 
-      <button type="button" class="btn" (click)="reserve()">
+      <button type="button" class="btn" (click)="reserve(selected)">
         Reservar
       </button>
+    </div>
+  } @else {
+    <div class="state">
+      Selecciona una clase para ver su detalle.
     </div>
   }
 </div>

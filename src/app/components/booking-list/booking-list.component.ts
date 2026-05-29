@@ -1,13 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-
-interface Booking {
-  id: number;
-  className: string;
-  instructor: string;
-  schedule: string;
-  availableSpots: number;
-}
+import { BookingService } from '../../services/booking.service';
+import { BookingStateService } from '../../services/booking-state.service';
+import { Booking } from '../../models/booking.model';
 
 @Component({
   selector: 'app-booking-list',
@@ -17,17 +12,34 @@ interface Booking {
   styleUrl: './booking-list.component.scss'
 })
 export class BookingListComponent {
-  isLoading = false;
+  isLoading = true;
   hasError = false;
+  bookings: Booking[] = [];
 
-  bookings: Booking[] = [
-    { id: 1, className: 'Yoga', instructor: 'Laura Gomez', schedule: 'Lunes 18:00', availableSpots: 10 },
-    { id: 2, className: 'Crossfit', instructor: 'Marco Diaz', schedule: 'Martes 19:00', availableSpots: 6 },
-    { id: 3, className: 'Spinning', instructor: 'Ana Ruiz', schedule: 'Miercoles 20:00', availableSpots: 8 }
-  ];
+  constructor(
+    private bookingService: BookingService,
+    private bookingState: BookingStateService
+  ) {
+    this.load();
+  }
+
+  load(): void {
+    this.isLoading = true;
+    this.hasError = false;
+
+    this.bookingService.getBookings().subscribe({
+      next: (data) => {
+        this.bookings = data;
+        this.isLoading = false;
+      },
+      error: () => {
+        this.hasError = true;
+        this.isLoading = false;
+      }
+    });
+  }
 
   selectBooking(booking: Booking): void {
-    // TODO: enviar seleccion al servicio compartido
-    console.log('Selected booking', booking);
+    this.bookingState.setSelected(booking);
   }
 }
