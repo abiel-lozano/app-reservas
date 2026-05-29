@@ -1,0 +1,39 @@
+<div class="list">
+  <div class="list-head">
+    <h2>Clases disponibles</h2>
+    <span class="pill">Hoy</span>
+  </div>
+
+  @if (isLoading) {
+    <div class="state">
+      <span class="dot"></span>
+      Cargando reservas...
+    </div>
+  } @else if (hasError) {
+    <div class="state state-error">
+      Ocurrio un error al cargar las reservas.
+    </div>
+  } @else if (bookings.length === 0) {
+    <div class="state">
+      No hay clases disponibles por ahora.
+    </div>
+  } @else {
+    <div class="cards">
+      @for (booking of bookings; track booking.id) {
+        <article class="card">
+          <div class="card-main">
+            <h3>{{ booking.className }}</h3>
+            <p class="muted">{{ booking.instructor }}</p>
+            <p class="muted">{{ booking.schedule }}</p>
+          </div>
+          <div class="card-side">
+            <span class="spots">{{ booking.availableSpots }} cupos</span>
+            <button type="button" class="btn" (click)="selectBooking(booking)">
+              Ver mas
+            </button>
+          </div>
+        </article>
+      }
+    </div>
+  }
+</div>

@@ -1,0 +1,32 @@
+<div class="detail">
+  <h2>Detalle de la clase</h2>
+
+  @if (!selected) {
+    <div class="state">
+      Selecciona una clase para ver su detalle.
+    </div>
+  } @else {
+    <div class="card">
+      <div class="row">
+        <span class="label">Clase</span>
+        <span class="value">{{ selected.className }}</span>
+      </div>
+      <div class="row">
+        <span class="label">Profesor</span>
+        <span class="value">{{ selected.instructor }}</span>
+      </div>
+      <div class="row">
+        <span class="label">Horario</span>
+        <span class="value">{{ selected.schedule }}</span>
+      </div>
+      <div class="row">
+        <span class="label">Cupos</span>
+        <span class="value">{{ selected.availableSpots }} disponibles</span>
+      </div>
+
+      <button type="button" class="btn" (click)="reserve()">
+        Reservar
+      </button>
+    </div>
+  }
+</div>

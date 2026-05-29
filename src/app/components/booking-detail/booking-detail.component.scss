@@ -1,0 +1,48 @@
+.detail {
+  display: grid;
+  gap: 12px;
+}
+
+h2 {
+  margin: 0;
+  font-size: 18px;
+}
+
+.card {
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  border-radius: 12px;
+  background: #ffffff;
+  padding: 14px;
+  display: grid;
+  gap: 10px;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.label {
+  color: #6b6b6b;
+  font-size: 13px;
+}
+
+.value {
+  font-weight: 600;
+}
+
+.btn {
+  border: none;
+  border-radius: 10px;
+  padding: 8px 12px;
+  background: #2f6bd0;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+.state {
+  padding: 12px;
+  border-radius: 10px;
+  background: #f7f2ea;
+}

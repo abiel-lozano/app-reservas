@@ -1,0 +1,88 @@
+.list {
+  display: grid;
+  gap: 14px;
+}
+
+.list-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+h2 {
+  margin: 0;
+  font-size: 18px;
+}
+
+.pill {
+  font-size: 12px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: #f0ebe3;
+}
+
+.cards {
+  display: grid;
+  gap: 12px;
+}
+
+.card {
+  display: grid;
+  gap: 12px;
+  padding: 12px;
+  border-radius: 12px;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  background: #fff;
+}
+
+.card-main h3 {
+  margin: 0 0 4px;
+  font-size: 16px;
+}
+
+.muted {
+  margin: 0;
+  color: #6b6b6b;
+  font-size: 14px;
+}
+
+.card-side {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.spots {
+  font-size: 12px;
+  color: #2f6bd0;
+  font-weight: 600;
+}
+
+.btn {
+  border: none;
+  border-radius: 10px;
+  padding: 6px 10px;
+  background: #d06c2f;
+  color: #fff;
+  cursor: pointer;
+}
+
+.state {
+  padding: 12px;
+  border-radius: 10px;
+  background: #f7f2ea;
+}
+
+.state-error {
+  background: #ffe9e6;
+  color: #a32020;
+}
+
+.dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  margin-right: 6px;
+  border-radius: 50%;
+  background: #d06c2f;
+}
