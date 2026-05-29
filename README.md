@@ -1,27 +1,35 @@
-# AppReservasTest
+# App Reservas - Gimnasio
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.17.
+Pequena app en Angular para simular la reserva de clases de deporte en un gimnasio..
 
-## Development server
+## Requisitos
+- Node.js: **22.22.3**  
+- Angular CLI: **17.3.17**
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Instalacion y ejecucion
+```bash
+npm install
+ng serve
+```
+Abrir `http://localhost:4200` en el navegador para ver la aplicación.
 
-## Code scaffolding
+### Architectura de componentes
+- `AppComponent`: layout general y distribucion de la vista.
+- `BookingListComponent`: listado de tarjetas con estados (loading, error, empty).
+- `BookingDetailComponent`: muestra detalle de la clase seleccionada y accion de reservar.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### Comunicación entre componentes
+Se eligió un servicio compartido con `BehaviorSubject` porque evita pasar props a través de varios niveles al hacer que la lista y el detalle se mantengan sincronizados.
 
-## Build
+### Consumo de datos
+Se hace una simulación de un endpoint REST usando `HttpClient` con un HTTP interceptor que responde a `GET /bookings` para tener un flujo HTTP sin tener backend.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+### Estructura del proyecto
+- `components/`: Contiene ambos componentes de UI.
+- `services/`: lógica de datos y estado compartido.
+- `models/`: interface de booking
 
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+### Decisiones y tradeoffs de desarrollo
+- Standalone components y @if/@for para evitar funcionalidades deprecadas.
+- Mock via interceptor para cumplir el flujo HTTP real
+- Lo que se dejó fuera por tiempo: tests unitarios con `Jest`, animaciones en UI, despliege a Vercel/Netlify/GitHub Pages, formularios de reserva con Reactive Forms.
