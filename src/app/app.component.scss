@@ -1,0 +1,64 @@
+:root {
+  --bg: #f6f3ee;
+  --ink: #1b1b1b;
+  --muted: #6b6b6b;
+  --card: #ffffff;
+  --accent: #d06c2f;
+  --accent-2: #2f6bd0;
+  --ring: rgba(0, 0, 0, 0.08);
+}
+
+.page {
+  min-height: 100vh;
+  color: var(--ink);
+  background:
+    radial-gradient(1200px 600px at 10% -10%, #fff7eb 0%, transparent 60%),
+    radial-gradient(900px 500px at 90% 0%, #eef4ff 0%, transparent 55%),
+    var(--bg);
+  padding: 32px 20px 48px;
+  font-family: "Cabinet Grotesk", "Trebuchet MS", sans-serif;
+}
+
+.head {
+  max-width: 1040px;
+  margin: 0 auto 24px;
+}
+
+.title {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.title h1 {
+  font-size: 32px;
+  letter-spacing: 0.2px;
+  margin: 0;
+}
+
+.subtitle {
+  margin: 6px 0 0;
+  color: var(--muted);
+}
+
+.grid {
+  max-width: 1040px;
+  margin: 0 auto;
+  display: grid;
+  gap: 20px;
+}
+
+.panel {
+  background: var(--card);
+  border-radius: 14px;
+  padding: 18px;
+  box-shadow: 0 10px 30px var(--ring);
+  border: 1px solid rgba(0, 0, 0, 0.04);
+}
+
+@media (min-width: 768px) {
+  .grid {
+    grid-template-columns: 2fr 1.2fr;
+    align-items: start;
+  }
+}
