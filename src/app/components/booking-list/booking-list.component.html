@@ -11,11 +11,11 @@
     </div>
   } @else if (hasError) {
     <div class="state state-error">
-      Ocurrio un error al cargar las reservas.
+      Ocurrió un error al cargar las reservas
     </div>
   } @else if (bookings.length === 0) {
     <div class="state">
-      No hay clases disponibles por ahora.
+      No hay clases disponibles por ahora
     </div>
   } @else {
     <div class="cards">
@@ -29,7 +29,7 @@
           <div class="card-side">
             <span class="spots">{{ booking.availableSpots }} cupos</span>
             <button type="button" class="btn" (click)="selectBooking(booking)">
-              Ver mas
+              Ver más
             </button>
           </div>
         </article>

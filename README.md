@@ -3,11 +3,11 @@
 Pequena app en Angular para simular la reserva de clases de deporte en un gimnasio..
 
 ## Requisitos
-- Node.js: **22.22.3**  
 - Angular CLI: **17.3.17**
+- Node.js: **22.22.3** (Para Angular 17~ se recomiendan mas bajas como 18~, pero no hubo problemas con esta versión)
 
 ## Instalacion y ejecucion
-```bash
+```powershell
 npm install
 ng serve
 ```
@@ -32,4 +32,4 @@ Se hace una simulación de un endpoint REST usando `HttpClient` con un HTTP inte
 ### Decisiones y tradeoffs de desarrollo
 - Standalone components y @if/@for para evitar funcionalidades deprecadas.
 - Mock via interceptor para cumplir el flujo HTTP real
-- Lo que se dejó fuera por tiempo: tests unitarios con `Jest`, animaciones en UI, despliege a Vercel/Netlify/GitHub Pages, formularios de reserva con Reactive Forms.
+- Lo que se dejó fuera por tiempo: tests unitarios, animaciones en UI, despliege a la webv, formularios de reserva con Reactive Forms.

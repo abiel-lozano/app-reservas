@@ -19,6 +19,7 @@ export class BookingDetailComponent {
   }
 
   reserve(selected: Booking): void {
+    // Confirmar funcionamiento en lugar de hacer llamada a API
     console.log('Reserved', selected);
   }
 }

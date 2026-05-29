@@ -20,7 +20,7 @@ export class BookingsMockInterceptor implements HttpInterceptor {
 
   intercept(req: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
     if (req.method === 'GET' && req.url.endsWith('/bookings')) {
-      return of(new HttpResponse({ status: 200, body: this.data })).pipe(delay(600));
+      return of(new HttpResponse({ status: 200, body: this.data })).pipe(delay(600)); // Simulate network delay, show loading state
     }
 
     return next.handle(req);
